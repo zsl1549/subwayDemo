@@ -4,7 +4,6 @@ var mysql = require("mysql");
 let mysql_table;
 
 function start(response, postData) {
-  console.log("Request handler 'start' was called.");
   //读取HTML文件内容
   fs.readFile("./index.html", "utf-8", function(err, data) {
     if (err) {
@@ -28,6 +27,21 @@ function api(response, postData) {
     }
   });
 }
+
+
+function jquerys(response, postData) {
+  //读取HTML文件内容
+  fs.readFile("./jquery.js", "utf-8", function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      response.writeHead(200, { "Content-Type": "text/js" });
+      response.write(data);
+      response.end();
+    }
+  });
+}
+
 function env(response, postData) {
   fs.readFile("./MySQL.html", "utf-8", function(err, data) {
     if (err) {
@@ -108,13 +122,160 @@ function env(response, postData) {
 }
 
 function upload(response, postData) {
-  console.log("Request handler 'upload' was called.");
   response.writeHead(200, { "Content-Type": "text/plain" });
   response.write("You've sent: " + postData);
   response.end();
 }
 
+
+function subway(response, postData) {
+  //读取HTML文件内容
+  fs.readFile("./subway/subwaymap.js", "utf-8", function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      response.writeHead(200, { "Content-Type": "text/js" });
+      response.write(data);
+      response.end();
+    }
+  });
+}
+
+function weui(response, postData) {
+  //读取HTML文件内容
+  fs.readFile("./mobile/js/weui.js", "utf-8", function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      response.writeHead(200, { "Content-Type": "text/js" });
+      response.write(data);
+      response.end();
+    }
+  });
+}
+
+function gets(response, postData) {
+  //读取HTML文件内容
+  fs.readFile("./gets.js", "utf-8", function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      response.writeHead(200, { "Content-Type": "text/js" });
+      response.write(data);
+      response.end();
+    }
+  });
+}
+
+
+function interchange(response, postData) {
+  //读取HTML文件内容
+  fs.readFile("./subway/interchange.xml", "utf-8", function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      response.writeHead(200,{'Content-Type':'text/plain;charset=utf-8'});
+      response.write(data);
+      response.end();
+    }
+  });
+}
+
+
+function stations(response, postData) {
+  //读取HTML文件内容
+  fs.readFile("./subway/stations.xml", "utf-8", function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      response.writeHead(200, { "Content-Type": "text/xml" });
+      response.write(data);
+      response.end();
+    }
+  });
+}
+
+
+function beijing(response, postData) {
+  //读取HTML文件内容
+  fs.readFile("./subway/beijing.xml", "utf-8", function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      response.writeHead(200, { "Content-Type": "text/xml" });
+      response.write(data);
+      response.end();
+    }
+  });
+}
+
+function jquerysCss(response, postData) {
+  //读取HTML文件内容
+  fs.readFile("./mobile/css/jquery.css", "utf-8", function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      response.writeHead(200, { "Content-Type": "text/css" });
+      response.write(data);
+      response.end();
+    }
+  });
+}
+
+
+function weuiCss(response, postData) {
+  //读取HTML文件内容
+  fs.readFile("./mobile/css/weui.css", "utf-8", function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      response.writeHead(200, { "Content-Type": "text/css" });
+      response.write(data);
+      response.end();
+    }
+  });
+}
+
+function aaa1Png(response, postData) {
+  //读取HTML文件内容
+  fs.readFile("./mobile/img/aaa1.png", "utf-8", function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      response.writeHead(200, { "Content-Type": "text/png" });
+      response.write(data);
+      response.end();
+    }
+  });
+}
+
+function userJpg(response, postData) {
+  //读取HTML文件内容
+  fs.readFile("./mobile/img/user68.jpg", "utf-8", function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      response.writeHead(200, { "Content-Type": "text/img" });
+      response.write(data);
+      response.end();
+    }
+  });
+}
+
+
 exports.start = start;
 exports.upload = upload;
+exports.subway = subway;
+exports.weui = weui;
+exports.gets = gets;
+exports.interchange = interchange;
+exports.stations = stations;
+exports.beijing = beijing;
 exports.api = api;
 exports.env = env;
+exports.jquerys = jquerys;
+exports.jquerysCss = jquerysCss;
+exports.weuiCss = weuiCss;
+exports.aaa1Png = aaa1Png;
+exports.userJpg = userJpg;
+

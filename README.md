@@ -10,7 +10,6 @@
 ├── requestHandlers.js
 ├── server.js
 ├── index.html
-├── MySQL.html
 ├── apiInstance.html
 ├── README.md
 ├── app.js
@@ -19,9 +18,6 @@
 
 ## 项目要求
 
-### 包管理器
-
-NodeJS 程序需要使用 [npm](https://www.npmjs.org) 管理依赖，且必须存在 `package.json` 文件，如果不存在请使用 `npm init` 命令创建并配置需要的依赖和其它信息，否则应用将无法部署。`package.json`的具体配置项请参考 [npm 文档](https://www.npmjs.org/doc/json.html)。
 
 `package.json` 文件示例：
 

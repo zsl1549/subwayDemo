@@ -5,9 +5,26 @@ var requestHandlers = require("./requestHandlers");
 var handle = {};
 handle["/"] = requestHandlers.start;
 handle["/start"] = requestHandlers.start;
+
 handle["/upload"] = requestHandlers.upload;
+handle["/gets"] = requestHandlers.gets;
+
+handle["/subway"] = requestHandlers.subway;
+handle["/interchange"] = requestHandlers.interchange;
+handle["/stations"] = requestHandlers.stations;
+handle["/beijing"] = requestHandlers.beijing;
 handle["/api"] = requestHandlers.api;
 handle["/env"] = requestHandlers.env;
+handle["/jquerys"] = requestHandlers.jquerys;
+handle["/mobile/js/weui.js"] = requestHandlers.weui;
+handle["/mobile/css/jquery.css"] = requestHandlers.jquerysCss;
+handle["/mobile/css/weui.css"] = requestHandlers.weuiCss;
+handle["/mobile/img/aaa1.png"] = requestHandlers.aaa1Png;
+// handle["/mobile/img/user68.jpg"] = requestHandlers.userJpg;
+
+
+
+
 
 server.start(router.route, handle);
 
