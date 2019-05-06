@@ -73,7 +73,7 @@
 <body class="page-kube">
   <div class="searchhead">
     <div class="weui-search-bar" id="searchBar">
-        <a class="huitui" href="/"></a>
+      <a class="huitui" href="/"></a>
 
       <form class="weui-search-bar__form" onSubmit="return search();">
         <div class="weui-search-bar__box">
@@ -102,29 +102,22 @@
 <!-- <script src="./gets"></script> -->
 
 <script>
-   $(function () {
-    // localStorage.setItem('order', 'a109');
-    console.log(localStorage.getItem('order')) // a109
-   let arr= JSON.parse(localStorage.getItem('order'))
-        
-console.log("arr", arr)
-  // for(let i=0;i<arr.length;i++){
-  //   console.log("arr",(arr[i]))
+  $(function () {
+    let arr = JSON.parse(localStorage.getItem('order'))
 
-  //   var box=$(`<li data-real_name="arr[i]" class="weui-cell weui-cell_access list_one"> <a class="weui-cell" href="#"><div class="weui-cell__hd min_head"></div><div class="weui-cell__bd"><p>陈佳</p></div><div class="weui-cell__ft">零售</div></a></li>`)
-
-  //   $('body').append(box);
-  // }
-   
-
-  var inner="";
+    var inner = "";
 
 
-for(var i=0;i<arr.length;i++){
-inner+='<li data-real_name="'+ arr[i].name+'" class="weui-cell weui-cell_access list_one"> <a class="weui-cell" href="#"><div class="weui-cell__hd min_head"></div><div class="weui-cell__bd"><p>'+arr[i].name+'</p></div><div class="weui-cell__ft" style="background:'+arr[i].color+'">'+arr[i].line_short_name+'</div></a></li>'
+    for (var i = 0; i < arr.length; i++) {
+      inner += '<li data-real_name="' + arr[i].name + '" class="weui-cell weui-cell_access list_one"><a class="weui-cell" ><div class="weui-cell__hd min_head"></div><div class="weui-cell__bd"><p>' + arr[i].name + '</p></div>'
 
-}
-$(inner).appendTo($(".two_list"));
+      for (var k = 0; k < arr[i].lines.length; k++) {
+        inner += '<div class="weui-cell__ft" style="background:' + arr[i].lines[k].color + '">'+arr[i].lines[k].shortName + '</div>'
+      }
+      inner +='</a></li>'
+    }
+
+    $(inner).appendTo($(".two_list"));
 
 
 
@@ -135,7 +128,7 @@ $(inner).appendTo($(".two_list"));
   $('.weui-icon-search').click(function () {
     search();
   })
- 
+
   function search() {
     // 获取搜索框的值
     var kwds = $("#searchInput").val();
